@@ -46,7 +46,7 @@ class MainWindow:
         selected_item = self.tree.selection()
 
         if not selected_item:
-            messagebox.showerror("Hata", "Lütfen silinecek aracı seçin")
+            messagebox.showerror("Hata!", "Lütfen silinecek aracı seçiniz.")
             return
 
         values = self.tree.item(selected_item)["values"]
@@ -60,13 +60,13 @@ class MainWindow:
         if confirm:
             delete_car(plaka)
             self.refresh_table()
-            messagebox.showinfo("Başarılı", "Araç silindi")
+            messagebox.showinfo("Başarılı!", "Araç silindi.")
     
     def open_rent_window(self):
         selected_item = self.tree.selection()
 
         if not selected_item:
-            messagebox.showerror("Hata", "Lütfen bir araç seçin")
+            messagebox.showerror("Hata!", "Lütfen bir araç seçiniz.")
             return
 
         values = self.tree.item(selected_item)["values"]
@@ -75,7 +75,7 @@ class MainWindow:
         durum = values[4]
 
         if durum != "müsait":
-            messagebox.showerror("Hata", "Bu araç şu an müsait değil")
+            messagebox.showerror("Hata!", "Bu araç şu an müsait değil.")
             return
 
         RentWindow(self.root, plaka, ucret, self.refresh_table)
@@ -84,7 +84,7 @@ class MainWindow:
         selected = self.tree.selection()
 
         if not selected:
-            messagebox.showwarning("Uyarı", "Lütfen bir araç seçin.")
+            messagebox.showwarning("Uyarı!", "Lütfen bir araç seçiniz.")
             return
 
         values = self.tree.item(selected[0], "values")
@@ -93,10 +93,10 @@ class MainWindow:
         success = return_car_by_plate(plaka)
 
         if success:
-            messagebox.showinfo("Başarılı", "Araç iade edildi.")
+            messagebox.showinfo("Başarılı!", "Araç iade edildi.")
             self.load_cars()
         else:
-            messagebox.showwarning("Uyarı", "Bu araç zaten müsait.")
+            messagebox.showwarning("Uyarı!", "Bu araç zaten müsait.")
 
 
     def refresh_table(self):
@@ -127,6 +127,9 @@ class MainWindow:
         self.tree.heading("ucret", text="Günlük Ücret")
         self.tree.heading("durum", text="Durum")
 
+        self.tree.tag_configure("müsait", foreground="green")
+        self.tree.tag_configure("kirada", foreground="red")
+
         self.tree.pack(fill=tk.BOTH, expand=True)
 
     def load_cars(self):
@@ -137,6 +140,10 @@ class MainWindow:
         for car in cars:
             tag = "müsait" if car["durum"] == "müsait" else "kirada"
 
+            durum_gosterim = (
+                "● Müsait" if car["durum"] == "müsait" else "● Kirada"
+            )
+
             self.tree.insert(
                 "",
                 tk.END,
@@ -145,7 +152,7 @@ class MainWindow:
                     car["marka"],
                     car["model"],
                     car["ucret"],
-                    car["durum"]
+                    durum_gosterim
                 ),
                 tags=(tag,)
         )

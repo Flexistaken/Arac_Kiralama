@@ -40,11 +40,11 @@ class RentWindow:
         end = self.bitis_entry.get()
 
         if not is_valid_date(start) or not is_valid_date(end):
-            messagebox.showerror("Hata", "Tarih formatı yanlış")
+            messagebox.showerror("Hata!", "Tarih formatı yanlış.")
             return
 
         if not is_date_order_valid(start, end):
-            messagebox.showerror("Hata", "Bitiş tarihi başlangıçtan önce olamaz")
+            messagebox.showerror("Hata!", "Bitiş tarihi başlangıçtan önce olamaz.")
             return
 
         start_date = datetime.strptime(start, "%Y-%m-%d")
@@ -61,19 +61,19 @@ class RentWindow:
         bitis = self.bitis_entry.get()
 
         if is_empty(musteri, baslangic, bitis):
-            messagebox.showerror("Hata", "Boş alan bırakılamaz")
+            messagebox.showerror("Hata!", "Boş alan bırakılamaz.")
             return
 
         if not is_valid_date(baslangic) or not is_valid_date(bitis):
-            messagebox.showerror("Hata", "Tarih formatı yanlış")
+            messagebox.showerror("Hata!", "Tarih formatı yanlış.")
             return
 
         if not is_date_order_valid(baslangic, bitis):
-            messagebox.showerror("Hata", "Bitiş tarihi başlangıçtan önce olamaz")
+            messagebox.showerror("Hata!", "Bitiş tarihi başlangıçtan önce olamaz.")
             return
 
         rent_car(self.plaka, musteri, baslangic, bitis)
         self.refresh_callback()
 
-        messagebox.showinfo("Başarılı", "Kiralama işlemi tamamlandı")
+        messagebox.showinfo("Başarılı!", "Kiralama işlemi tamamlandı.")
         self.window.destroy()

@@ -37,16 +37,16 @@ class AddCarWindow:
         ucret = self.ucret_entry.get()
 
         if is_empty(plaka, marka, model, ucret):
-            messagebox.showerror("Hata", "Boş alan bırakılamaz")
+            messagebox.showerror("Hata!", "Boş alan bırakılamaz.")
             return
 
         if not is_number(ucret):
-            messagebox.showerror("Hata", "Ücret sayısal olmalıdır")
+            messagebox.showerror("Hata!", "Ücret sayısal olmalıdır.")
             return
 
         car = Car(plaka, marka, model, int(ucret))
         add_car(car.to_dict())
 
-        messagebox.showinfo("Başarılı", "Araç eklendi")
+        messagebox.showinfo("Başarılı!", "Araç eklendi.")
         self.refresh_callback()
         self.window.destroy()
