@@ -1,0 +1,42 @@
+[
+    {
+        "plaka": "17agu230",
+        "marka": "mercedes",
+        "model": "e200",
+        "ucret": 1500,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "34BJK16",
+        "marka": "BMW",
+        "model": "Q5",
+        "ucret": 1200,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "16TAA201",
+        "marka": "Citroen",
+        "model": "C5",
+        "ucret": 900,
+        "durum": "kirada",
+        "kiralayan": "Burak Nizam",
+        "baslangic_tarihi": "2025-10-12",
+        "bitis_tarihi": "2025-10-19"
+    },
+    {
+        "plaka": "17BN250",
+        "marka": "toyota",
+        "model": "corolla",
+        "ucret": 700,
+        "durum": "kirada",
+        "kiralayan": "Taha Alp Aydin",
+        "baslangic_tarihi": "2025-12-20",
+        "bitis_tarihi": "2025-12-25"
+    }
+]
