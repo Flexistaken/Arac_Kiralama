@@ -1,7 +1,9 @@
 import json
 import os
 
-FILE_PATH = "Arac_Kiralama_Proje/data/cars.json"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+DATA_PATH = os.path.join(BASE_DIR, "data", "cars.json")
 
 def load_cars():
     if not os.path.exists("Arac_Kiralama_Proje/data/cars.json"):
