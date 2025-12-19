@@ -7,7 +7,7 @@ class RentalHistoryWindow:
     def __init__(self, parent):
         self.window = tk.Toplevel(parent)
         self.window.title("Kiralama Geçmişi")
-        self.window.geometry("800x400")
+        self.window.geometry("1000x550")
 
         columns = (
             "plaka",

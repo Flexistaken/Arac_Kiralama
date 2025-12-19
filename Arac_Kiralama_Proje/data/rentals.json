@@ -1,1 +1,42 @@
-[]
+[
+    {
+        "plaka": "34LEM129",
+        "musteri": "Rastgele bir isim",
+        "baslangic": "2026-1-15",
+        "bitis": "2026-1-29",
+        "gun_sayisi": 15,
+        "gunluk_ucret": 400,
+        "toplam_ucret": 6000,
+        "created_at": "2025-12-20 00:38:43"
+    },
+    {
+        "plaka": "17AGU306",
+        "musteri": "Burak Nizam",
+        "baslangic": "2025-12-20",
+        "bitis": "2025-12-25",
+        "gun_sayisi": 6,
+        "gunluk_ucret": 1400,
+        "toplam_ucret": 8400,
+        "created_at": "2025-12-20 00:50:02"
+    },
+    {
+        "plaka": "17AE001",
+        "musteri": "Deniz Çam",
+        "baslangic": "2026-2-10",
+        "bitis": "2026-2-16",
+        "gun_sayisi": 7,
+        "gunluk_ucret": 2400,
+        "toplam_ucret": 16800,
+        "created_at": "2025-12-20 00:50:35"
+    },
+    {
+        "plaka": "16TAA201",
+        "musteri": "Taha Aydin",
+        "baslangic": "2026-1-7",
+        "bitis": "2026-1-19",
+        "gun_sayisi": 13,
+        "gunluk_ucret": 900,
+        "toplam_ucret": 11700,
+        "created_at": "2025-12-20 00:50:58"
+    }
+]

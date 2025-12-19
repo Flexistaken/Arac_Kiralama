@@ -15,19 +15,19 @@
         "model": "C5",
         "ucret": 900,
         "durum": "kirada",
-        "kiralayan": "Burak Nizam",
-        "baslangic_tarihi": "2025-10-12",
-        "bitis_tarihi": "2025-10-19"
+        "kiralayan": "Taha Aydin",
+        "baslangic_tarihi": "2026-1-7",
+        "bitis_tarihi": "2026-1-19"
     },
     {
         "plaka": "17BN250",
         "marka": "Toyota",
         "model": "Corolla",
         "ucret": 700,
-        "durum": "kirada",
-        "kiralayan": "Taha Alp Aydin",
-        "baslangic_tarihi": "2025-12-20",
-        "bitis_tarihi": "2025-12-25"
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
     },
     {
         "plaka": "34LEM129",
@@ -45,9 +45,9 @@
         "model": "E200",
         "ucret": 1400,
         "durum": "kirada",
-        "kiralayan": "Mehmet Yılmaz",
-        "baslangic_tarihi": "2025-02-12",
-        "bitis_tarihi": "2025-02-19"
+        "kiralayan": "Burak Nizam",
+        "baslangic_tarihi": "2025-12-20",
+        "bitis_tarihi": "2025-12-25"
     },
     {
         "plaka": "17DML600",
@@ -65,9 +65,9 @@
         "model": "A8",
         "ucret": 2400,
         "durum": "kirada",
-        "kiralayan": "",
-        "baslangic_tarihi": "",
-        "bitis_tarihi": ""
+        "kiralayan": "Deniz Çam",
+        "baslangic_tarihi": "2026-2-10",
+        "bitis_tarihi": "2026-2-16"
     },
     {
         "plaka": "34AEV950",

@@ -5,12 +5,14 @@ from services.car_service import get_all_cars, return_car_by_plate, delete_car
 from gui.add_car_window import AddCarWindow
 from gui.rent_window import RentWindow
 from gui.edit_car_window import EditCarWindow
+from gui.rental_history_window import RentalHistoryWindow
+
 
 class MainWindow:
     def __init__(self, root):
         self.root = root
         self.root.title("Araç Kiralama Sistemi")
-        self.root.geometry("800x400")
+        self.root.geometry("1000x550")
 
         #arama ve filtre
 
@@ -54,10 +56,11 @@ class MainWindow:
 
         self.create_table()
 
+        #button frame ve butonlar
+
         button_frame = tk.Frame(self.root)
         button_frame.pack(pady=15)
 
-        #butonlar
 
         tk.Button(
             button_frame,
@@ -88,6 +91,13 @@ class MainWindow:
             text="Araç Düzenle",
             command=self.open_edit_car_window
         ).pack(side=tk.LEFT, padx=5)
+
+        tk.Button(
+            button_frame,
+            text="Kiralama Geçmişi",
+            command=lambda: RentalHistoryWindow(self.root)
+        ).pack(side=tk.LEFT, padx=5)
+
 
 
         # en sonda load
