@@ -31,10 +31,14 @@ class AddCarWindow:
         tk.Button(self.window, text="Kaydet", command=self.save_car).pack(pady=10)
 
     def save_car(self):
-        plaka = self.plaka_entry.get()
-        marka = self.marka_entry.get()
-        model = self.model_entry.get()
-        ucret = self.ucret_entry.get()
+
+        plaka = self.plaka_entry.get().strip().upper()
+        raw_marka = self.marka_entry.get().strip()
+        raw_model = self.model_entry.get().strip()
+        marka = raw_marka if raw_marka.isupper() else raw_marka.title()
+        model = raw_model if raw_model.isupper() else raw_model.title()
+
+        ucret = self.ucret_entry.get().strip()
 
         if is_empty(plaka, marka, model, ucret):
             messagebox.showerror("Hata!", "Boş alan bırakılamaz.")
