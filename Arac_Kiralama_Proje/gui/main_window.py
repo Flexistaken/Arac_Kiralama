@@ -11,15 +11,61 @@ class MainWindow:
         self.root.title("Araç Kiralama Sistemi")
         self.root.geometry("800x400")
 
-        self.create_table()
-        self.load_cars()
+        # =========================
+        # 1️⃣ ARAMA + FİLTRE ALANI
+        # =========================
+        search_frame = tk.Frame(self.root)
+        search_frame.pack(pady=5)
 
+        tk.Label(search_frame, text="Ara:").pack(side=tk.LEFT, padx=5)
+
+        self.search_var = tk.StringVar()
+        self.filter_var = tk.StringVar(value="tümü")
+
+        # Arama kutusu placeholder ile
+        self.search_entry = tk.Entry(
+            search_frame,
+            textvariable=self.search_var,
+            width=25,
+            fg="grey"
+        )
+        self.search_entry.pack(side=tk.LEFT)
+        self.placeholder_text = "Plaka / Marka / Model ara..."
+        self.search_var.set(self.placeholder_text)
+
+
+        tk.Label(search_frame, text="Durum:").pack(side=tk.LEFT, padx=5)
+
+        filter_menu = ttk.Combobox(
+            search_frame,
+            textvariable=self.filter_var,
+            values=["tümü", "müsait", "kirada"],
+            state="readonly",
+            width=10
+        )
+        filter_menu.pack(side=tk.LEFT)
+
+        # 🔥 trace_add MUTLAKA burada
+        self.search_var.trace_add("write", lambda *args: self.load_cars())
+        self.filter_var.trace_add("write", lambda *args: self.load_cars())
+        self.search_entry.bind("<FocusIn>", self.on_search_focus_in)
+        self.search_entry.bind("<FocusOut>", self.on_search_focus_out)
+
+
+        # =========================
+        # 2️⃣ TABLO
+        # =========================
+        self.create_table()
+
+        # =========================
+        # 3️⃣ BUTONLAR
+        # =========================
         tk.Button(
             self.root,
             text="Araç Ekle",
             command=self.open_add_car_window
-            ).pack(pady=5)
-        
+        ).pack(pady=5)
+
         tk.Button(
             self.root,
             text="Sil",
@@ -37,6 +83,14 @@ class MainWindow:
             text="Aracı İade Et",
             command=self.return_car
         ).pack(pady=5)
+
+        # =========================
+        # 4️⃣ 🔥 EN SON: VERİYİ YÜKLE
+        # =========================
+        self.load_cars()
+
+
+
 
     
     def open_add_car_window(self):
@@ -131,18 +185,47 @@ class MainWindow:
         self.tree.tag_configure("kirada", foreground="red")
 
         self.tree.pack(fill=tk.BOTH, expand=True)
+    
+    def on_search_focus_in(self, event):
+        if self.search_var.get() == self.placeholder_text:
+            self.search_entry.delete(0, tk.END)
+            self.search_entry.config(fg="black")
+
+    def on_search_focus_out(self, event):
+        if not self.search_var.get().strip():
+            self.search_var.set(self.placeholder_text)
+            self.search_entry.config(fg="grey")
+
 
     def load_cars(self):
-        cars = get_all_cars()
-
         self.tree.delete(*self.tree.get_children())
 
-        for car in cars:
-            tag = "müsait" if car["durum"] == "müsait" else "kirada"
+        search_text = self.search_var.get().strip()
 
-            durum_gosterim = (
-                "● Müsait" if car["durum"] == "müsait" else "● Kirada"
-            )
+        if search_text == self.placeholder_text:
+            search_text = ""
+        else:
+            search_text = search_text.lower()
+
+        filter_status = self.filter_var.get()
+
+        for car in get_all_cars():
+
+        # 🔍 ARAMA (plaka / marka / model)
+            if search_text:
+                if not (
+                    search_text in car["plaka"].lower()
+                    or search_text in car["marka"].lower()
+                    or search_text in car["model"].lower()
+                ):
+                    continue
+
+        # 🔎 FİLTRELEME (durum)
+            if filter_status != "tümü" and car["durum"] != filter_status:
+                continue
+
+            tag = "müsait" if car["durum"] == "müsait" else "kirada"
+            durum_gosterim = "Müsait" if car["durum"] == "müsait" else "Kirada"
 
             self.tree.insert(
                 "",
@@ -155,4 +238,4 @@ class MainWindow:
                     durum_gosterim
                 ),
                 tags=(tag,)
-        )
+            )
