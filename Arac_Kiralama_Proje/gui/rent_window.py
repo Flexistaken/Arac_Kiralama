@@ -1,8 +1,9 @@
 import tkinter as tk
 from tkinter import messagebox
-from datetime import datetime
+from datetime import datetime, date
 
 from services.car_service import rent_car
+from services.rental_service import add_rental_record
 from utils.validators import is_empty, is_valid_date, is_date_order_valid
 
 class RentWindow:
@@ -44,7 +45,7 @@ class RentWindow:
             return
 
         if not is_date_order_valid(start, end):
-            messagebox.showerror("Hata!", "Bitiş tarihi başlangıçtan önce olamaz.")
+            messagebox.showerror("Hata!", "Kiralama bitiş tarihi başlangıçtan önce olamaz.")
             return
 
         start_date = datetime.strptime(start, "%Y-%m-%d")
@@ -69,10 +70,26 @@ class RentWindow:
             return
 
         if not is_date_order_valid(baslangic, bitis):
-            messagebox.showerror("Hata!", "Bitiş tarihi başlangıçtan önce olamaz.")
+            messagebox.showerror("Hata!", "Kiralama bitiş tarihi başlangıçtan önce olamaz.")
+            return
+        
+        #bugünün tarihinden itibaren kiralama
+        baslangic_date = datetime.strptime(baslangic, "%Y-%m-%d").date()
+        today = date.today()
+
+        if baslangic_date < today:
+            messagebox.showerror("Hata!", "Kiralama başlangıç tarihi bugünden önce olamaz.")
             return
 
         rent_car(self.plaka, musteri, baslangic, bitis)
+        add_rental_record(
+            self.plaka,
+            musteri,
+            baslangic,
+            bitis,
+            self.gunluk_ucret
+        )
+
         self.refresh_callback()
 
         messagebox.showinfo("Başarılı!", "Kiralama işlemi tamamlandı.")

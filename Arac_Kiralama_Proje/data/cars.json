@@ -21,8 +21,8 @@
     },
     {
         "plaka": "17BN250",
-        "marka": "toyota",
-        "model": "corolla",
+        "marka": "Toyota",
+        "model": "Corolla",
         "ucret": 700,
         "durum": "kirada",
         "kiralayan": "Taha Alp Aydin",
@@ -44,27 +44,27 @@
         "marka": "Mercedes",
         "model": "E200",
         "ucret": 1400,
-        "durum": "müsait",
-        "kiralayan": "",
-        "baslangic_tarihi": "",
-        "bitis_tarihi": ""
+        "durum": "kirada",
+        "kiralayan": "Mehmet Yılmaz",
+        "baslangic_tarihi": "2025-02-12",
+        "bitis_tarihi": "2025-02-19"
     },
     {
         "plaka": "17DML600",
         "marka": "Mercedes",
         "model": "C200",
         "ucret": 1350,
-        "durum": "kirada",
-        "kiralayan": "Damla Nizam",
-        "baslangic_tarihi": "2025-12-22",
-        "bitis_tarihi": "2026-01-7"
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
     },
     {
         "plaka": "17AE001",
         "marka": "Audi",
         "model": "A8",
         "ucret": 2400,
-        "durum": "müsait",
+        "durum": "kirada",
         "kiralayan": "",
         "baslangic_tarihi": "",
         "bitis_tarihi": ""

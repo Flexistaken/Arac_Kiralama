@@ -1,9 +1,10 @@
 import tkinter as tk
 from tkinter import ttk
-from services.car_service import get_all_cars, rent_car, return_car_by_plate, delete_car
-from gui.add_car_window import AddCarWindow
 from tkinter import messagebox
+from services.car_service import get_all_cars, return_car_by_plate, delete_car
+from gui.add_car_window import AddCarWindow
 from gui.rent_window import RentWindow
+from gui.edit_car_window import EditCarWindow
 
 class MainWindow:
     def __init__(self, root):
@@ -53,37 +54,40 @@ class MainWindow:
 
         self.create_table()
 
+        button_frame = tk.Frame(self.root)
+        button_frame.pack(pady=15)
+
         #butonlar
 
         tk.Button(
-            self.root,
+            button_frame,
             text="Araç Ekle",
             command=self.open_add_car_window
-        ).pack(pady=5)
+        ).pack(side=tk.LEFT, padx=5)
 
         tk.Button(
-            self.root,
+            button_frame,
             text="Sil",
             command=self.delete_selected_car
-        ).pack(pady=5)
+        ).pack(side=tk.LEFT, padx=5)
 
         tk.Button(
-            self.root,
+            button_frame,
             text="Kiralama Başlat",
             command=self.open_rent_window
-        ).pack(pady=5)
+        ).pack(side=tk.LEFT, padx=5)
 
         tk.Button(
-            self.root,
+            button_frame,
             text="Aracı İade Et",
             command=self.return_car
-        ).pack(pady=5)
+        ).pack(side=tk.LEFT, padx=5)
 
         tk.Button(
-            self.root,
+            button_frame,
             text="Araç Düzenle",
             command=self.open_edit_car_window
-        ).pack(pady=5)
+        ).pack(side=tk.LEFT, padx=5)
 
 
         # en sonda load
@@ -170,7 +174,7 @@ class MainWindow:
         # gerçek veriyi servisten al
         for car in get_all_cars():
             if car["plaka"] == plaka:
-                edit_car_window(self.root, car, self.refresh_table)
+                EditCarWindow(self.root, car, self.refresh_table)
                 break
 
 

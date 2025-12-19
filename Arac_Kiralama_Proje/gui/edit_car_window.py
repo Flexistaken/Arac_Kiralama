@@ -6,6 +6,8 @@ class EditCarWindow:
     def __init__(self, parent, car, refresh_callback):
         self.car = car
         self.refresh_callback = refresh_callback
+        self.old_status = car["durum"]
+
 
         self.window = tk.Toplevel(parent)
         self.window.title("Araç Düzenle")
@@ -46,24 +48,42 @@ class EditCarWindow:
             "kirada"
         ).pack()
 
+        btn_frame = tk.Frame(self.window)
+        btn_frame.pack(pady=10)
+
         tk.Button(
-            self.window,
+            btn_frame,
             text="Kaydet",
             command=self.save_changes
-        ).pack(pady=10)
+        ).pack(side=tk.LEFT, padx=5)
 
-def save_changes(self):
-    try:
-        self.car["marka"] = self.marka_entry.get()
-        self.car["model"] = self.model_entry.get()
-        self.car["ucret"] = int(self.ucret_entry.get())
-        self.car["durum"] = self.durum_var.get()
+        tk.Button(
+            btn_frame,
+            text="İptal",
+            command=self.window.destroy
+        ).pack(side=tk.LEFT, padx=5)
 
-        update_car(self.car)
 
-        messagebox.showinfo("Başarılı", "Araç güncellendi.")
-        self.refresh_callback()
-        self.window.destroy()
+    def save_changes(self):
+        try:
+            self.car["marka"] = self.marka_entry.get()
+            self.car["model"] = self.model_entry.get()
+            self.car["ucret"] = int(self.ucret_entry.get())
+            self.car["durum"] = self.durum_var.get()
 
-    except ValueError:
-        messagebox.showerror("Hata", "Günlük ücret sayısal olmalıdır.")
+            new_status = self.durum_var.get()
+
+            # Eğer müsaitten kirada yapıldıysa rent window açma
+            if self.old_status == "müsait" and new_status == "kirada":
+                self.window.destroy()
+                from gui.rent_window import RentWindow
+                RentWindow(self.window.master, self.car["plaka"], self.car["ucret"], self.refresh_callback)
+                return
+            
+            update_car(self.car)
+            messagebox.showinfo("Başarılı", "Araç güncellendi.")
+            self.refresh_callback()
+            self.window.destroy()
+
+        except ValueError:
+            messagebox.showerror("Hata", "Günlük ücret sayısal olmalıdır.")
