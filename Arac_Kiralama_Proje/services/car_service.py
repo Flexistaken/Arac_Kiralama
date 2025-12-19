@@ -44,3 +44,14 @@ def return_car_by_plate(plaka):
             return True
 
     return False
+
+
+def update_car(updated_car):
+    cars = load_cars()
+
+    for i, car in enumerate(cars):
+        if car["plaka"] == updated_car["plaka"]:
+            cars[i] = updated_car
+            break
+
+    save_cars(cars)

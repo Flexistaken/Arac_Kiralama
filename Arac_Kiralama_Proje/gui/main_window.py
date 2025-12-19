@@ -11,9 +11,8 @@ class MainWindow:
         self.root.title("Araç Kiralama Sistemi")
         self.root.geometry("800x400")
 
-        # =========================
-        # 1️⃣ ARAMA + FİLTRE ALANI
-        # =========================
+        #arama ve filtre
+
         search_frame = tk.Frame(self.root)
         search_frame.pack(pady=5)
 
@@ -45,21 +44,17 @@ class MainWindow:
         )
         filter_menu.pack(side=tk.LEFT)
 
-        # 🔥 trace_add MUTLAKA burada
+        # trace_add
         self.search_var.trace_add("write", lambda *args: self.load_cars())
         self.filter_var.trace_add("write", lambda *args: self.load_cars())
         self.search_entry.bind("<FocusIn>", self.on_search_focus_in)
         self.search_entry.bind("<FocusOut>", self.on_search_focus_out)
 
 
-        # =========================
-        # 2️⃣ TABLO
-        # =========================
         self.create_table()
 
-        # =========================
-        # 3️⃣ BUTONLAR
-        # =========================
+        #butonlar
+
         tk.Button(
             self.root,
             text="Araç Ekle",
@@ -84,9 +79,14 @@ class MainWindow:
             command=self.return_car
         ).pack(pady=5)
 
-        # =========================
-        # 4️⃣ 🔥 EN SON: VERİYİ YÜKLE
-        # =========================
+        tk.Button(
+            self.root,
+            text="Araç Düzenle",
+            command=self.open_edit_car_window
+        ).pack(pady=5)
+
+
+        # en sonda load
         self.load_cars()
 
 
@@ -125,14 +125,19 @@ class MainWindow:
 
         values = self.tree.item(selected_item)["values"]
         plaka = values[0]
-        ucret = int(values[3])
-        durum = values[4]
+        ucret = int(values[3].split()[0])
 
-        if durum != "müsait":
-            messagebox.showerror("Hata!", "Bu araç şu an müsait değil.")
-            return
+        # müsait, kirada'yı gui'da değiştirdiğimiz için gui'dan bakıp hatayı vermek yerine plaka'dan müsaitlik durumuna bakıyor.
+        for car in get_all_cars():
+            if car["plaka"] == plaka:
+                if car["durum"] != "müsait":
+                    messagebox.showerror("Hata!", "Bu araç şu an müsait değil.")
+                    return
+                break
 
+        # müsait olunca rent windowu açılır
         RentWindow(self.root, plaka, ucret, self.refresh_table)
+
     
     def return_car(self):
         selected = self.tree.selection()
@@ -151,6 +156,23 @@ class MainWindow:
             self.load_cars()
         else:
             messagebox.showwarning("Uyarı!", "Bu araç zaten müsait.")
+        
+    def open_edit_car_window(self):
+        selected = self.tree.selection()
+
+        if not selected:
+            messagebox.showerror("Hata!", "Lütfen düzenlenecek aracı seçiniz.")
+            return
+
+        values = self.tree.item(selected[0])["values"]
+        plaka = values[0]
+
+        # gerçek veriyi servisten al
+        for car in get_all_cars():
+            if car["plaka"] == plaka:
+                edit_car_window(self.root, car, self.refresh_table)
+                break
+
 
 
     def refresh_table(self):
@@ -220,7 +242,7 @@ class MainWindow:
                 ):
                     continue
 
-        # 🔎 FİLTRELEME (durum)
+        # filtreleme işi
             if filter_status != "tümü" and car["durum"] != filter_status:
                 continue
 
@@ -234,7 +256,7 @@ class MainWindow:
                     car["plaka"],
                     car["marka"],
                     car["model"],
-                    car["ucret"],
+                    f'{car["ucret"]} ₺', # ücret kısmına tl işareti ekledim
                     durum_gosterim
                 ),
                 tags=(tag,)

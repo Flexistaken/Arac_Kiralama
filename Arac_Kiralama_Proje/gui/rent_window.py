@@ -53,7 +53,7 @@ class RentWindow:
         gun = (end_date - start_date).days + 1
         toplam = gun * self.gunluk_ucret
 
-        self.total_label.config(text=f"Toplam Ücret: {toplam} TL")
+        self.total_label.config(text=f"Toplam Ücret: {toplam} ₺")
 
     def save_rent(self):
         musteri = self.musteri_entry.get()

@@ -1,15 +1,5 @@
 [
     {
-        "plaka": "17agu230",
-        "marka": "mercedes",
-        "model": "e200",
-        "ucret": 1500,
-        "durum": "müsait",
-        "kiralayan": "",
-        "baslangic_tarihi": "",
-        "bitis_tarihi": ""
-    },
-    {
         "plaka": "34BJK16",
         "marka": "BMW",
         "model": "Q5",
@@ -38,5 +28,55 @@
         "kiralayan": "Taha Alp Aydin",
         "baslangic_tarihi": "2025-12-20",
         "bitis_tarihi": "2025-12-25"
+    },
+    {
+        "plaka": "34LEM129",
+        "marka": "Renault",
+        "model": "Clio",
+        "ucret": 400,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "17AGU306",
+        "marka": "Mercedes",
+        "model": "E200",
+        "ucret": 1400,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "17DML600",
+        "marka": "Mercedes",
+        "model": "C200",
+        "ucret": 1350,
+        "durum": "kirada",
+        "kiralayan": "Damla Nizam",
+        "baslangic_tarihi": "2025-12-22",
+        "bitis_tarihi": "2026-01-7"
+    },
+    {
+        "plaka": "17AE001",
+        "marka": "Audi",
+        "model": "A8",
+        "ucret": 2400,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "34AEV950",
+        "marka": "Mercedes",
+        "model": "B160",
+        "ucret": 1100,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
     }
 ]
