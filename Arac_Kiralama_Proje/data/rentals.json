@@ -38,5 +38,35 @@
         "gunluk_ucret": 900,
         "toplam_ucret": 11700,
         "created_at": "2025-12-20 00:50:58"
+    },
+    {
+        "plaka": "16GN240",
+        "musteri": "Mehmet Veli",
+        "baslangic": "2026-1-15",
+        "bitis": "2026-1-20",
+        "gun_sayisi": 6,
+        "gunluk_ucret": 3500,
+        "toplam_ucret": 21000,
+        "created_at": "2025-12-20 14:43:19"
+    },
+    {
+        "plaka": "35IZM350",
+        "musteri": "Ahmet Yılmaz",
+        "baslangic": "2026-2-12",
+        "bitis": "2026-3-12",
+        "gun_sayisi": 29,
+        "gunluk_ucret": 850,
+        "toplam_ucret": 24650,
+        "created_at": "2025-12-20 15:38:31"
+    },
+    {
+        "plaka": "01ADA001",
+        "musteri": "Cenk Ermiş",
+        "baslangic": "2026-03-20",
+        "bitis": "2026-03-29",
+        "gun_sayisi": 10,
+        "gunluk_ucret": 1100,
+        "toplam_ucret": 11000,
+        "created_at": "2025-12-20 15:39:33"
     }
 ]

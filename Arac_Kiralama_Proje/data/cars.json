@@ -78,5 +78,75 @@
         "kiralayan": "",
         "baslangic_tarihi": "",
         "bitis_tarihi": ""
+    },
+    {
+        "plaka": "16GN240",
+        "marka": "Tesla",
+        "model": "Model Y",
+        "ucret": 3500,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "06ANK606",
+        "marka": "Hyundai",
+        "model": "i20",
+        "ucret": 500,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "35IZM350",
+        "marka": "Volkswagen",
+        "model": "Golf",
+        "ucret": 850,
+        "durum": "kirada",
+        "kiralayan": "Ahmet Yılmaz",
+        "baslangic_tarihi": "2026-2-12",
+        "bitis_tarihi": "2026-3-12"
+    },
+    {
+        "plaka": "07ANT777",
+        "marka": "Fiat",
+        "model": "Egea",
+        "ucret": 600,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "41KOC414",
+        "marka": "Skoda",
+        "model": "Octavia",
+        "ucret": 950,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "01ADA001",
+        "marka": "Peugeot",
+        "model": "3008",
+        "ucret": 1100,
+        "durum": "kirada",
+        "kiralayan": "Cenk Ermiş",
+        "baslangic_tarihi": "2026-03-20",
+        "bitis_tarihi": "2026-03-29"
+    },
+    {
+        "plaka": "20DEN020",
+        "marka": "Ford",
+        "model": "Focus",
+        "ucret": 750,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
     }
 ]
