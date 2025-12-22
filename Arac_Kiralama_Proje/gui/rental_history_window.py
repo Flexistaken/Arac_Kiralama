@@ -17,10 +17,10 @@ class RentalHistoryWindow(ctk.CTkToplevel):
         style.configure("History.Treeview",
                         background="#2a2d2e",
                         foreground="white",
-                        rowheight=35,
+                        rowheight=45,
                         fieldbackground="#2a2d2e",
                         borderwidth=0,
-                        font=("Roboto", 10))
+                        font=("Roboto", 14))
         style.map('History.Treeview', background=[('selected', '#1f538d')])
 
         style.configure("History.Treeview.Heading",
