@@ -62,7 +62,7 @@ class MainWindow:
         ctk.CTkLabel(self.search_frame, text="Durum Filtresi:", font=("Roboto", 14, "bold")).pack(side="left",
                                                                                                   padx=(10, 5))
 
-        self.filter_var = ctk.StringVar(value="tümü")
+        self.filter_var = ctk.StringVar(value="Tümü")
         self.filter_menu = ctk.CTkOptionMenu(
             self.search_frame,
             variable=self.filter_var,
