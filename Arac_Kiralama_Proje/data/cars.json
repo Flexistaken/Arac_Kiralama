@@ -168,5 +168,257 @@
         "kiralayan": "Murat Boz",
         "baslangic_tarihi": "2026-04-14",
         "bitis_tarihi": "2026-04-16"
+    },
+
+    {
+        "plaka": "34BJK1903",
+        "marka": "Mercedes-Benz",
+        "model": "G63 AMG",
+        "ucret": 12000,
+        "durum": "kirada",
+        "kiralayan": "Süleyman Seba",
+        "baslangic_tarihi": "2025-12-20",
+        "bitis_tarihi": "2025-12-27"
+    },
+    {
+        "plaka": "06ANK001",
+        "marka": "Audi",
+        "model": "A8 L",
+        "ucret": 8500,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "35IZM099",
+        "marka": "Porsche",
+        "model": "911 Carrera",
+        "ucret": 15000,
+        "durum": "kirada",
+        "kiralayan": "Ece Seçkin",
+        "baslangic_tarihi": "2025-12-21",
+        "bitis_tarihi": "2025-12-24"
+    },
+    {
+        "plaka": "34TES122",
+        "marka": "Tesla",
+        "model": "Model 3",
+        "ucret": 3500,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "16BUR160",
+        "marka": "BMW",
+        "model": "M4 Competition",
+        "ucret": 9500,
+        "durum": "kirada",
+        "kiralayan": "Kenan Sofuoğlu",
+        "baslangic_tarihi": "2025-12-22",
+        "bitis_tarihi": "2025-12-25"
+    },
+    {
+        "plaka": "07ANT007",
+        "marka": "Range Rover",
+        "model": "Vogue",
+        "ucret": 7000,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "34VIP001",
+        "marka": "Rolls-Royce",
+        "model": "Ghost",
+        "ucret": 25000,
+        "durum": "kirada",
+        "kiralayan": "Acun Ilıcalı",
+        "baslangic_tarihi": "2025-12-22",
+        "bitis_tarihi": "2025-12-30"
+    },
+    {
+        "plaka": "41KOC411",
+        "marka": "Ford",
+        "model": "Mustang Mach-E",
+        "ucret": 3800,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "61TS611",
+        "marka": "Toyota",
+        "model": "Land Cruiser",
+        "ucret": 5500,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "34IST145",
+        "marka": "Volkswagen",
+        "model": "Passat R-Line",
+        "ucret": 2200,
+        "durum": "kirada",
+        "kiralayan": "Hasan Can Kaya",
+        "baslangic_tarihi": "2026-01-15",
+        "bitis_tarihi": "2026-01-23"
+    },
+    {
+        "plaka": "01ADA010",
+        "marka": "Ferrari",
+        "model": "F8 Tributo",
+        "ucret": 35000,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "20DEN200",
+        "marka": "Volvo",
+        "model": "XC90 Recharge",
+        "ucret": 4200,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "34TR0001",
+        "marka": "Togg",
+        "model": "T10X",
+        "ucret": 3000,
+        "durum": "kirada",
+        "kiralayan": "Selçuk Bayraktar",
+        "baslangic_tarihi": "2026-01-20",
+        "bitis_tarihi": "2026-01-28"
+    },
+    {
+        "plaka": "09AYD009",
+        "marka": "Honda",
+        "model": "Civic Type-R",
+        "ucret": 3200,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "42KON042",
+        "marka": "Skoda",
+        "model": "Superb L&K",
+        "ucret": 2400,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "34NBA023",
+        "marka": "Cadillac",
+        "model": "Escalade",
+        "ucret": 8000,
+        "durum": "kirada",
+        "kiralayan": "Alperen Şengün",
+        "baslangic_tarihi": "2025-12-22",
+        "bitis_tarihi": "2026-01-05"
+    },
+    {
+        "plaka": "26ESK026",
+        "marka": "Hyundai",
+        "model": "Ioniq 6",
+        "ucret": 2800,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "34LUX088",
+        "marka": "Lamborghini",
+        "model": "Urus",
+        "ucret": 20000,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "10BAL010",
+        "marka": "Peugeot",
+        "model": "408 GT",
+        "ucret": 2100,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "34GTR034",
+        "marka": "Nissan",
+        "model": "GT-R Nismo",
+        "ucret": 18000,
+        "durum": "kirada",
+        "kiralayan": "Doğan Kabak",
+        "baslangic_tarihi": "2026-01-21",
+        "bitis_tarihi": "2026-01-24"
+    },
+    {
+        "plaka": "27GAZ027",
+        "marka": "Fiat",
+        "model": "Egea Cross",
+        "ucret": 1100,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "34REN001",
+        "marka": "Renault",
+        "model": "Austral",
+        "ucret": 1900,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "31HAT031",
+        "marka": "Jeep",
+        "model": "Wrangler Rubicon",
+        "ucret": 4800,
+        "durum": "kirada",
+        "kiralayan": "Sarp Apak",
+        "baslangic_tarihi": "2026-01-20",
+        "bitis_tarihi": "2026-01-25"
+    },
+    {
+        "plaka": "34ECO022",
+        "marka": "Dacia",
+        "model": "Jogger",
+        "ucret": 1300,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "06GS1905",
+        "marka": "Aston Martin",
+        "model": "DBX 707",
+        "ucret": 14000,
+        "durum": "kirada",
+        "kiralayan": "Mauro Icardi",
+        "baslangic_tarihi": "2026-01-18",
+        "bitis_tarihi": "2026-01-26"
     }
+
 ]
