@@ -1,7 +1,7 @@
 import customtkinter as ctk
 from tkinter import messagebox
 from models.car import Car
-# get_all_cars fonksiyonunu kontrol işlemi için import ediyoruz
+# get_all_cars fonksiyonunu kontrol işlemi için import
 from services.car_service import add_car, get_all_cars
 from utils.validators import is_empty, is_number
 
@@ -50,19 +50,19 @@ class AddCarWindow(ctk.CTkToplevel):
         raw_model = self.model_entry.get().strip()
         ucret = self.ucret_entry.get().strip()
 
-        # 1. Boşluk Kontrolü
+        # Boşluk Kontrolü
         if is_empty(plaka, raw_marka, raw_model, ucret):
             messagebox.showerror("Hata!", "Lütfen tüm alanları doldurun.")
             return
 
-        # 2. Plaka Çakışma Kontrolü (Yeni Eklenen Kısım)
+        # Plaka Çakışma Kontrolü
         mevcut_araclar = get_all_cars()
         for arac in mevcut_araclar:
             if arac["plaka"].upper() == plaka:
                 messagebox.showerror("Hata!", f"{plaka} plakalı araç zaten sistemde kayıtlı.")
                 return
 
-        # 3. Sayısal Kontrol
+        # Sayısal Kontrol
         if not is_number(ucret):
             messagebox.showerror("Hata!", "Ücret alanına sadece sayı girmelisiniz.")
             return

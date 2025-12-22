@@ -20,10 +20,7 @@ def save_rentals(rentals):
 
 
 def add_rental_record(plaka, musteri, baslangic, bitis, gunluk_ucret):
-    """
-    baslangic / bitis: 'YYYY-MM-DD' string
-    gunluk_ucret: int
-    """
+
     start_dt = datetime.strptime(baslangic, "%Y-%m-%d").date()
     end_dt = datetime.strptime(bitis, "%Y-%m-%d").date()
     gun_sayisi = (end_dt - start_dt).days + 1

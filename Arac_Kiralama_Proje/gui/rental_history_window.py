@@ -12,7 +12,7 @@ class RentalHistoryWindow(ctk.CTkToplevel):
         self.geometry("1100x600")
         self.attributes("-topmost", True)
 
-        # --- Stil Yapılandırması (Tabloyu Güzelleştirme) ---
+        # Tabloyu güzelleştirme
         style = ttk.Style()
         style.configure("History.Treeview",
                         background="#2a2d2e",
@@ -41,7 +41,7 @@ class RentalHistoryWindow(ctk.CTkToplevel):
         )
         self.title_label.pack(pady=20)
 
-                # --- TARİH BAZLI ARAMA PANELİ ---
+        # Tarih bazlı arama 
         self.search_frame = ctk.CTkFrame(self, corner_radius=15)
         self.search_frame.pack(fill="x", padx=20, pady=(0, 15))
 
@@ -74,15 +74,15 @@ class RentalHistoryWindow(ctk.CTkToplevel):
         )
         self.clear_btn.pack(side="left", pady=12)
 
-        # Tablo Konteynırı (Frame)
+        # Frame
         self.container = ctk.CTkFrame(self, corner_radius=15)
         self.container.pack(fill="both", expand=True, padx=20, pady=(0, 20))
 
-        # Scrollbar (Kaydırma Çubuğu)
+        # Scroll
         self.scrollbar = ctk.CTkScrollbar(self.container)
         self.scrollbar.pack(side="right", fill="y", padx=2)
 
-        # Treeview (Tablo)
+        # Treeview Tablo
         columns = (
             "plaka", "musteri", "baslangic", "bitis",
             "gun_sayisi", "gunluk_ucret", "toplam_ucret", "created_at"
@@ -128,8 +128,8 @@ class RentalHistoryWindow(ctk.CTkToplevel):
         rentals = load_rentals()
         query = self.date_search_entry.get().strip()
 
-        # 🔒 KORUMA: Tarih yazılmadıysa filtreleme yapma
-        if len(query) >= 4:  # en az "2024"
+        # Tarih yazılırken filtreleme işi
+        if len(query) >= 4:
             rentals = [
                 r for r in rentals
                 if query in str(r.get("baslangic", ""))

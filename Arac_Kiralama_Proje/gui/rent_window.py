@@ -19,7 +19,7 @@ class RentWindow(ctk.CTkToplevel):
         self.geometry("380x580")
         self.attributes("-topmost", True)
 
-        # Üst Bilgi Kartı
+        # Üst Bilgi Kartı (plaka ve günlük ücret)
         self.header_frame = ctk.CTkFrame(self, fg_color="#1f538d", corner_radius=10)
         self.header_frame.pack(pady=20, padx=20, fill="x")
 
@@ -28,7 +28,7 @@ class RentWindow(ctk.CTkToplevel):
         ctk.CTkLabel(self.header_frame, text=f"Günlük Ücret: {gunluk_ucret} ₺", font=("Roboto", 14),
                      text_color="#ecf0f1").pack(pady=(0, 10))
 
-        # Giriş Alanları Konfigürasyonu
+        # Giriş alanı boyutlar
         entry_width = 280
         entry_corner = 10
 
@@ -43,7 +43,7 @@ class RentWindow(ctk.CTkToplevel):
         self.baslangic_entry = ctk.CTkEntry(self, placeholder_text="YYYY-MM-DD (Örn: 2025-12-22)", width=entry_width,
                                             corner_radius=entry_corner)
         self.baslangic_entry.pack(pady=5)
-        # Bugünü otomatik dolduralım (Kullanıcıya kolaylık)
+        # Otomatik bugünden başlar
         self.baslangic_entry.insert(0, date.today().strftime("%Y-%m-%d"))
 
         # Bitiş Tarihi
@@ -52,7 +52,7 @@ class RentWindow(ctk.CTkToplevel):
                                         corner_radius=entry_corner)
         self.bitis_entry.pack(pady=5)
 
-        # --- Toplam Ücret Göstergesi ---
+        # Toplam ücret
         self.price_frame = ctk.CTkFrame(self, fg_color="transparent")
         self.price_frame.pack(pady=20)
 
@@ -60,7 +60,7 @@ class RentWindow(ctk.CTkToplevel):
                                         text_color="#2ecc71")
         self.total_label.pack()
 
-        # --- Butonlar ---
+        # Butonlar
         self.calc_button = ctk.CTkButton(
             self,
             text="Ücreti Hesapla",
@@ -102,7 +102,7 @@ class RentWindow(ctk.CTkToplevel):
         gun = (end_date - start_date).days + 1
         toplam = gun * self.gunluk_ucret
 
-        self.total_label.configure(text=f"Toplam Ücret: {toplam} ₺")
+        self.total_label.configure(text=f"Toplam Ücret: {toplam} ₺") # tl işareti ekledim
         return toplam  # Kaydetme işlemi için lazım olabilir
 
     def save_rent(self):
@@ -114,7 +114,7 @@ class RentWindow(ctk.CTkToplevel):
             messagebox.showerror("Hata!", "Lütfen tüm alanları doldurun.")
             return
 
-        # Tarih ve mantık kontrolleri (Mevcut mantığını koruyoruz)
+        # Tarih ve mantık kontrolleri
         if not is_valid_date(baslangic) or not is_valid_date(bitis):
             messagebox.showerror("Hata!", "Tarih formatı geçersiz.")
             return

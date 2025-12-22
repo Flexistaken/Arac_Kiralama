@@ -23,32 +23,32 @@ class EditCarWindow(ctk.CTkToplevel):
         entry_width = 250
         entry_corner = 10
 
-        # --- Plaka (Disabled) ---
+        # Plaka değiştirilemeyen.
         ctk.CTkLabel(self, text="Plaka (Değiştirilemez)", font=("Roboto", 12)).pack(pady=(5, 0))
         self.plaka_entry = ctk.CTkEntry(self, width=entry_width, corner_radius=entry_corner)
         self.plaka_entry.insert(0, car["plaka"])
         self.plaka_entry.configure(state="disabled", fg_color="#3d3d3d")  # Kilitli olduğu belli olsun
         self.plaka_entry.pack(pady=5)
 
-        # --- Marka ---
+        # Marka
         ctk.CTkLabel(self, text="Marka", font=("Roboto", 12)).pack(pady=(5, 0))
         self.marka_entry = ctk.CTkEntry(self, width=entry_width, corner_radius=entry_corner)
         self.marka_entry.insert(0, car["marka"])
         self.marka_entry.pack(pady=5)
 
-        # --- Model ---
+        # Model
         ctk.CTkLabel(self, text="Model", font=("Roboto", 12)).pack(pady=(5, 0))
         self.model_entry = ctk.CTkEntry(self, width=entry_width, corner_radius=entry_corner)
         self.model_entry.insert(0, car["model"])
         self.model_entry.pack(pady=5)
 
-        # --- Ücret ---
+        # Ücret
         ctk.CTkLabel(self, text="Günlük Ücret", font=("Roboto", 12)).pack(pady=(5, 0))
         self.ucret_entry = ctk.CTkEntry(self, width=entry_width, corner_radius=entry_corner)
         self.ucret_entry.insert(0, car["ucret"])
         self.ucret_entry.pack(pady=5)
 
-        # --- Durum (OptionMenu) ---
+        # Durum(müsait/kirada)
         ctk.CTkLabel(self, text="Durum", font=("Roboto", 12)).pack(pady=(5, 0))
         self.durum_menu = ctk.CTkOptionMenu(
             self,
@@ -60,7 +60,7 @@ class EditCarWindow(ctk.CTkToplevel):
         self.durum_menu.set(car["durum"])
         self.durum_menu.pack(pady=10)
 
-        # --- Butonlar (Frame) ---
+        # Butonlar , frame bir de
         self.btn_frame = ctk.CTkFrame(self, fg_color="transparent")
         self.btn_frame.pack(pady=20)
 
@@ -70,7 +70,7 @@ class EditCarWindow(ctk.CTkToplevel):
             command=self.save_changes,
             width=120,
             corner_radius=15,
-            fg_color="#2ecc71",  # Yeşil tonu
+            fg_color="#2ecc71",
             hover_color="#27ae60"
         )
         self.save_button.pack(side="left", padx=10)
@@ -81,7 +81,7 @@ class EditCarWindow(ctk.CTkToplevel):
             command=self.destroy,
             width=120,
             corner_radius=15,
-            fg_color="#e74c3c",  # Kırmızı tonu
+            fg_color="#e74c3c",
             hover_color="#c0392b"
         )
         self.cancel_button.pack(side="left", padx=10)
@@ -95,7 +95,7 @@ class EditCarWindow(ctk.CTkToplevel):
 
             new_status = self.durum_menu.get()
 
-            # Özel Durum: Müsait -> Kirada geçişi
+            # müsaitten kiradaya geçiş
             if self.old_status == "müsait" and new_status == "kirada":
                 self.destroy()
                 from gui.rent_window import RentWindow

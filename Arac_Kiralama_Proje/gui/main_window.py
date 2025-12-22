@@ -8,20 +8,19 @@ from gui.add_car_window import AddCarWindow
 from gui.rent_window import RentWindow
 from gui.edit_car_window import EditCarWindow
 from gui.rental_history_window import RentalHistoryWindow
-from gui.stats_window import StatsWindow  # Yeni eklediğimiz istatistik penceresi
+from gui.stats_window import StatsWindow 
 
 
 class MainWindow:
     def __init__(self, root):
         self.root = root
-        self.root.title("Araç Kiralama Sistemi v2.0 - Yönetim Paneli")
-        self.root.geometry("1280x720")  # Daha geniş bir çalışma alanı
+        self.root.title("Araç Kiralama Sistemi - Yönetim Paneli")
+        self.root.geometry("1280x720")
 
-        # --- MODERN STİL YAPILANDIRMASI ---
+        #stili modernleştirme
         style = ttk.Style()
         style.theme_use("default")
 
-        # Tablo İçeriği (Yazı boyutu 14, Satır yüksekliği 45)
         style.configure("Treeview",
                         background="#2a2d2e",
                         foreground="white",
@@ -32,18 +31,17 @@ class MainWindow:
 
         style.map('Treeview', background=[('selected', '#1f538d')])
 
-        # Tablo Başlıkları
         style.configure("Treeview.Heading",
                         background="#1f1f1f",
                         foreground="white",
                         relief="flat",
                         font=("Roboto", 13, "bold"))
 
-        # --- 1. ÜST PANEL: ARAMA VE FİLTRELEME ---
+        # Arama ve filtreleme
         self.search_frame = ctk.CTkFrame(self.root, corner_radius=15)
         self.search_frame.pack(pady=20, padx=20, fill="x")
 
-        # Arama Kutusu (Anlık Arama) – PLACEHOLDER FIX
+        # Placeholder (fixlendi)
         self.search_entry = ctk.CTkEntry(
             self.search_frame,
             placeholder_text="Plaka, Marka veya Model ara...",
@@ -59,7 +57,7 @@ class MainWindow:
         self.search_entry.bind("<KeyRelease>", lambda e: self.load_cars())
 
 
-        # Durum Filtresi Etiketi ve Menüsü
+        # Durum Filtresi
         ctk.CTkLabel(self.search_frame, text="Durum Filtresi:", font=("Roboto", 14, "bold")).pack(side="left",
                                                                                                   padx=(10, 5))
 
@@ -75,19 +73,19 @@ class MainWindow:
         )
         self.filter_menu.pack(side="left", padx=10)
 
-        # --- 2. ORTA PANEL: ARAÇ TABLOSU ---
+        # Araç Tablosu
         self.table_frame = ctk.CTkFrame(self.root, corner_radius=15)
         self.table_frame.pack(pady=5, padx=20, fill="both", expand=True)
 
         self.create_table()
 
-        # --- 3. ALT PANEL: İŞLEM BUTONLARI ---
+        # Butonlar
         self.button_frame = ctk.CTkFrame(self.root, fg_color="transparent")
         self.button_frame.pack(pady=25, padx=20, fill="x")
 
         btn_font = ("Roboto", 14, "bold")
 
-        # SOL GRUP: Veri Yönetimi
+        # Sol taraftaki butonlar
         self.add_btn = ctk.CTkButton(self.button_frame, text=" Araç Ekle", command=self.open_add_car_window,
                                      fg_color="#2ecc71", hover_color="#27ae60", font=btn_font, height=45)
         self.add_btn.pack(side="left", padx=5)
@@ -100,8 +98,7 @@ class MainWindow:
                                         fg_color="#e74c3c", hover_color="#c0392b", font=btn_font, height=45)
         self.delete_btn.pack(side="left", padx=5)
 
-        # SAĞ GRUP: Kiralama ve Analiz
-        # İstatistik Butonu (Yeni)
+        # Sağ taraftaki butonlar
         self.stats_btn = ctk.CTkButton(self.button_frame, text=" İstatistikler", command=self.open_stats_window,
                                        fg_color="#1abc9c", hover_color="#16a085", font=btn_font, height=45)
         self.stats_btn.pack(side="right", padx=5)
@@ -119,12 +116,12 @@ class MainWindow:
                                       font=btn_font, height=45)
         self.rent_btn.pack(side="right", padx=5)
 
-        # İlk açılışta verileri yükle
+        # en sonda kalacak (veri yükleme)
         self.load_cars()
 
 
     def create_table(self):
-        # Kaydırma Çubuğu
+        # Scroll
         self.scrollbar = ctk.CTkScrollbar(self.table_frame)
         self.scrollbar.pack(side="right", fill="y", padx=2, pady=2)
 
@@ -145,8 +142,8 @@ class MainWindow:
             self.tree.column(col, width=width, anchor="center")
 
         # Durum Renkleri
-        self.tree.tag_configure("müsait", foreground="#2ecc71")  # Yeşil
-        self.tree.tag_configure("kirada", foreground="#e74c3c")  # Kırmızı
+        self.tree.tag_configure("müsait", foreground="#2ecc71")
+        self.tree.tag_configure("kirada", foreground="#e74c3c")
 
         self.tree.pack(fill="both", expand=True, padx=5, pady=5)
 
@@ -185,7 +182,7 @@ class MainWindow:
     def refresh_table(self):
         self.load_cars()
 
-    # --- AKSİYONLAR ---
+    # commandlar
 
     def open_stats_window(self):
         StatsWindow(self.root)
