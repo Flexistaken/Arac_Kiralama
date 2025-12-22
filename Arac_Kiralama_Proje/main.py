@@ -12,3 +12,7 @@ root.title("Araç Kiralama Otomasyonu")
 
 app = MainWindow(root)
 root.mainloop()
+
+# Burak Nizam 170424053
+# Mustafa Deniz Çam 170424054
+# Taha Alp Aydin 171424003
