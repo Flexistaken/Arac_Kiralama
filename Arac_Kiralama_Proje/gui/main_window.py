@@ -66,7 +66,7 @@ class MainWindow:
         self.filter_menu = ctk.CTkOptionMenu(
             self.search_frame,
             variable=self.filter_var,
-            values=["tümü", "müsait", "kirada"],
+            values=["Tümü", "Müsait", "Kirada"],
             command=lambda x: self.load_cars(),
             width=150,
             height=35,
