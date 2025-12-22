@@ -41,6 +41,39 @@ class RentalHistoryWindow(ctk.CTkToplevel):
         )
         self.title_label.pack(pady=20)
 
+                # --- TARİH BAZLI ARAMA PANELİ ---
+        self.search_frame = ctk.CTkFrame(self, corner_radius=15)
+        self.search_frame.pack(fill="x", padx=20, pady=(0, 15))
+
+        ctk.CTkLabel(
+            self.search_frame,
+            text="Tarihe Göre Ara:",
+            font=("Roboto", 14, "bold")
+        ).pack(side="left", padx=(15, 10), pady=12)
+
+        self.date_search_entry = ctk.CTkEntry(
+            self.search_frame,
+            placeholder_text="YYYY-AA-GG veya YYYY-AA (örn: 2026-01)",
+            placeholder_text_color="gray70",
+            width=420,
+            height=40,
+            corner_radius=10,
+            font=("Roboto", 13)
+        )
+        self.date_search_entry.pack(side="left", padx=(0, 10), pady=12)
+
+        # Yazdıkça ara
+        self.date_search_entry.bind("<KeyRelease>", lambda e: self.load_history())
+
+        self.clear_btn = ctk.CTkButton(
+            self.search_frame,
+            text="Temizle",
+            width=90,
+            height=40,
+            command=self.clear_search
+        )
+        self.clear_btn.pack(side="left", pady=12)
+
         # Tablo Konteynırı (Frame)
         self.container = ctk.CTkFrame(self, corner_radius=15)
         self.container.pack(fill="both", expand=True, padx=20, pady=(0, 20))
@@ -91,10 +124,19 @@ class RentalHistoryWindow(ctk.CTkToplevel):
         self.load_history()
 
     def load_history(self):
-        # Tabloyu temizle
         self.tree.delete(*self.tree.get_children())
-
         rentals = load_rentals()
+        query = self.date_search_entry.get().strip()
+
+        # 🔒 KORUMA: Tarih yazılmadıysa filtreleme yapma
+        if len(query) >= 4:  # en az "2024"
+            rentals = [
+                r for r in rentals
+                if query in str(r.get("baslangic", ""))
+                or query in str(r.get("bitis", ""))
+                or query in str(r.get("created_at", ""))
+            ]
+
         for r in rentals:
             self.tree.insert(
                 "",
@@ -111,4 +153,12 @@ class RentalHistoryWindow(ctk.CTkToplevel):
                 )
             )
 
-        self.footer_label.configure(text=f"Toplam {len(rentals)} kiralama kaydı bulundu.")
+        self.footer_label.configure(
+            text=f"Toplam {len(rentals)} kiralama kaydı bulundu."
+        )
+
+
+        
+    def clear_search(self):
+        self.date_search_entry.delete(0, tk.END)
+        self.load_history()

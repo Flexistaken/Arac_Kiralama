@@ -68,5 +68,15 @@
         "gunluk_ucret": 1100,
         "toplam_ucret": 11000,
         "created_at": "2025-12-20 15:39:33"
+    },
+    {
+        "plaka": "07TN802",
+        "musteri": "Murat Boz",
+        "baslangic": "2026-04-14",
+        "bitis": "2026-04-16",
+        "gun_sayisi": 3,
+        "gunluk_ucret": 5000,
+        "toplam_ucret": 15000,
+        "created_at": "2025-12-22 14:18:32"
     }
 ]

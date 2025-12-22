@@ -148,5 +148,25 @@
         "kiralayan": "",
         "baslangic_tarihi": "",
         "bitis_tarihi": ""
+    },
+    {
+        "plaka": "20AKA106",
+        "marka": "Mini",
+        "model": "Cooper",
+        "ucret": 1200,
+        "durum": "müsait",
+        "kiralayan": "",
+        "baslangic_tarihi": "",
+        "bitis_tarihi": ""
+    },
+    {
+        "plaka": "07TN802",
+        "marka": "Maserati",
+        "model": "Gt2 Stradale",
+        "ucret": 5000,
+        "durum": "kirada",
+        "kiralayan": "Murat Boz",
+        "baslangic_tarihi": "2026-04-14",
+        "bitis_tarihi": "2026-04-16"
     }
 ]

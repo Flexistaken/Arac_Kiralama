@@ -43,14 +43,11 @@ class MainWindow:
         self.search_frame = ctk.CTkFrame(self.root, corner_radius=15)
         self.search_frame.pack(pady=20, padx=20, fill="x")
 
-        # Arama Kutusu (Anlık Arama)
-        self.search_var = ctk.StringVar()
-        self.search_var.trace_add("write", lambda *args: self.load_cars())
-
+        # Arama Kutusu (Anlık Arama) – PLACEHOLDER FIX
         self.search_entry = ctk.CTkEntry(
             self.search_frame,
-            textvariable=self.search_var,
             placeholder_text="Plaka, Marka veya Model ara...",
+            placeholder_text_color="gray70",
             width=450,
             height=45,
             corner_radius=10,
@@ -58,15 +55,19 @@ class MainWindow:
         )
         self.search_entry.pack(side="left", padx=20, pady=15)
 
+        # Yazdıkça otomatik ara
+        self.search_entry.bind("<KeyRelease>", lambda e: self.load_cars())
+
+
         # Durum Filtresi Etiketi ve Menüsü
         ctk.CTkLabel(self.search_frame, text="Durum Filtresi:", font=("Roboto", 14, "bold")).pack(side="left",
                                                                                                   padx=(10, 5))
 
-        self.filter_var = ctk.StringVar(value="tümü")
+        self.filter_var = ctk.StringVar(value="Tümü")
         self.filter_menu = ctk.CTkOptionMenu(
             self.search_frame,
             variable=self.filter_var,
-            values=["tümü", "müsait", "kirada"],
+            values=["Tümü", "Müsait", "Kirada"],
             command=lambda x: self.load_cars(),
             width=150,
             height=35,
@@ -121,6 +122,7 @@ class MainWindow:
         # İlk açılışta verileri yükle
         self.load_cars()
 
+
     def create_table(self):
         # Kaydırma Çubuğu
         self.scrollbar = ctk.CTkScrollbar(self.table_frame)
@@ -150,23 +152,35 @@ class MainWindow:
 
     def load_cars(self):
         self.tree.delete(*self.tree.get_children())
-        search_query = self.search_var.get().lower().strip()
-        filter_status = self.filter_var.get()
+
+        search_query = self.search_entry.get().strip().lower()
+        filter_status = self.filter_var.get().lower()
 
         for car in get_all_cars():
-            # Arama Kontrolü
-            match_search = any(search_query in str(car[k]).lower() for k in ["plaka", "marka", "model"])
-            if search_query and not match_search:
-                continue
+            # Arama filtresi
+            if search_query:
+                if not any(search_query in car[k].lower() for k in ["plaka", "marka", "model"]):
+                    continue
 
-            # Filtre Kontrolü
+            # Durum filtresi
             if filter_status != "tümü" and car["durum"] != filter_status:
                 continue
 
             tag = "müsait" if car["durum"] == "müsait" else "kirada"
-            self.tree.insert("", "end", values=(
-                car["plaka"], car["marka"], car["model"], f"{car['ucret']} ₺", car["durum"].capitalize()
-            ), tags=(tag,))
+
+            self.tree.insert(
+                "",
+                "end",
+                values=(
+                    car["plaka"],
+                    car["marka"],
+                    car["model"],
+                    f"{car['ucret']} ₺",
+                    car["durum"].capitalize()
+                ),
+                tags=(tag,)
+            )
+
 
     def refresh_table(self):
         self.load_cars()
