@@ -344,10 +344,10 @@
         "marka": "Lamborghini",
         "model": "Urus",
         "ucret": 20000,
-        "durum": "müsait",
-        "kiralayan": "",
-        "baslangic_tarihi": "",
-        "bitis_tarihi": ""
+        "durum": "kirada",
+        "kiralayan": "Saadettin Saran",
+        "baslangic_tarihi": "2026-02-02",
+        "bitis_tarihi": "2026-02-22"
     },
     {
         "plaka": "10BAL010",
